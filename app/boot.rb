@@ -33,5 +33,6 @@ $logger.level = log_level
 $redis = Redis::Pool.new(
     host: (ENV['REDIS_HOST'] || 'localhost'),
     port: (ENV['REDIS_PORT'] || 6379),
+    password: ENV['REDIS_PASSWORD'],
     size: 20
 )

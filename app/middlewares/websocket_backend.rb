@@ -10,7 +10,8 @@ class WebsocketBackend
 
     redis_sub = Redis.new(
         host: (ENV['REDIS_HOST'] || 'localhost'),
-        port: (ENV['REDIS_PORT'] || 6379)
+        port: (ENV['REDIS_PORT'] || 6379),
+        password: ENV['REDIS_PASSWORD']
     )
     self.subscribe_to_redis_channel(redis_sub, ENV['REDIS_CHANNEL'])
   end
