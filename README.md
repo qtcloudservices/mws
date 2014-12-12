@@ -13,6 +13,7 @@ Open source version of Qt Cloud Services: Managed WebSocket.
 * set following environment variables to MAR application:
   * `REDIS_HOST=<mdb redis host>`
   * `REDIS_PORT=<mdb redis port>`
+  * `REDIS_PASSWORD=<mdb redis password>`
   * `APP_DOMAIN=<mar app domain>`
   * `ADMIN_TOKEN=<admin token, generate with your favorite tool>`
   * `EDS_BACKEND_ID=<optional: if set, server will require admin or EDS token>`
