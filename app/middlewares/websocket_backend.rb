@@ -3,6 +3,7 @@ require_relative '../models/websocket_client'
 
 class WebsocketBackend
   KEEPALIVE_TIME = 45 # in seconds
+  CHANNEL = 'websocket_messages'
 
   def initialize(app)
     @app     = app
@@ -13,7 +14,7 @@ class WebsocketBackend
         port: (ENV['REDIS_PORT'] || 6379),
         password: ENV['REDIS_PASSWORD']
     )
-    self.subscribe_to_redis_channel(redis_sub, ENV['REDIS_CHANNEL'])
+    self.subscribe_to_redis_channel(redis_sub, CHANNEL)
   end
 
   def call(env)

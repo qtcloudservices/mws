@@ -32,7 +32,7 @@ module Websockets
           data: message.data,
           receivers: message.receivers
       }
-      $redis.publish(ENV['REDIS_CHANNEL'], JSON.dump(message))
+      $redis.publish(WebsocketBackend::CHANNEL, JSON.dump(message))
 
       message
     end
