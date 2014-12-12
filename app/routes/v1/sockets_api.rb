@@ -5,6 +5,7 @@ require_relative '../../models/websocket_uri'
 module V1
   class SocketsApi < Cuba
     include JsonApi
+    include AuthFilters
   end
 end
 
