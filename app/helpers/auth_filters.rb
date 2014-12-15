@@ -1,12 +1,23 @@
 require_relative '../services/eds_token_verifier'
 require_relative '../models/user'
+require_relative 'permission_helpers'
 
 module AuthFilters
 
+  include PermissionHelpers
+
   ##
-  # @
+  # @return [Boolean]
   def restricted_access?
-    ENV['ACCESS_CONTROL'].to_s != ''
+    %w(eds custom).include?(access_control_mode)
+  end
+
+  ##
+  # Access control mode
+  #
+  # @return [String]
+  def access_control_mode
+    ENV['ACCESS_CONTROL'] || 'none'
   end
 
   def require_valid_token!
@@ -20,7 +31,7 @@ module AuthFilters
       return true
     end
 
-    if require_eds_token(authorization)
+    if access_control_mode == 'eds' && require_eds_token(authorization)
       return true
     end
 
@@ -51,7 +62,7 @@ module AuthFilters
       logger.debug 'Admin token: Invalid authorization type'
       return false
     end
-    if access_token != ENV['ADMIN_TOKEN']
+    if access_token != ENV['SECURITY_TOKEN']
       logger.debug 'Admin token: Invalid token'
       return false
     end
@@ -94,7 +105,7 @@ module AuthFilters
   # @param [String] message
   def respond_error(status, message)
     res.status = status
-    res.write({error: message})
+    res.write(JSON.dump({error: message}))
     halt(res.finish)
   end
 

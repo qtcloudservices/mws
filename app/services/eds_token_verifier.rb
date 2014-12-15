@@ -36,7 +36,6 @@ class EdsTokenVerifier
         'Enginio-Backend-Id' => eds_backend_id
     }
     begin
-      response = nil
       response = self.class.http_client.get(eds_uri, nil, headers)
     rescue => exc
       raise Error.new('Invalid bearer token')
