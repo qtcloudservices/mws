@@ -4,7 +4,7 @@ describe '/v1/websocket_uri' do
 
   let(:request_headers) do
     {
-        'HTTP_AUTHORIZATION' => "Bearer #{ENV['ADMIN_TOKEN']}"
+        'HTTP_AUTHORIZATION' => "Bearer #{ENV['SECURITY_TOKEN']}"
     }
   end
 
