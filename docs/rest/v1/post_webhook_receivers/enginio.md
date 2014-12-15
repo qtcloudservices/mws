@@ -3,12 +3,12 @@
 Receives [Enginio Webhook](https://developer.qtcloudservices.com/eds/key-concepts/webhooks) request and sends a websocket message to a gateway. This API requires authorization with a security token.
 
 To configure Webhook on Enginio Dashboard:
-    1. Create new Webhook
-    2. Set url: 'https://your.mws.address/v1/webhook_receivers/enginio'
-    3. Select collections
-    4. Add custom header field:
-        "Authorization": "Bearer [MWS Security Token]"
-    5. Save Webhook
+
+1. Create new Webhook
+2. Set url: 'https://your.mws.address/v1/webhook_receivers/enginio'
+3. Select collections
+4. Add custom header field: "Authorization": "Bearer [MWS Security Token]"
+5. Save Webhook
 
 ## Example request
 
