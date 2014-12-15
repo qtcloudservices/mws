@@ -19,10 +19,14 @@ MWS is built with Ruby and is using Redis for messaging gateway between multiple
 * For each socket connection, the client must request a WebSocket address. The authentication of client may be implemented at this stage. MWS may be integrated with [Enginio Data Storage](http://qtcloudservices.com/products/enginio-data-storage/) or have any custom authentication provider.
 * It is possible to send messages to a list of receivers which may consist of socket ids or delivery groups, **tags**. More advanced logic may be implemented directly to application.
 
-## Key Concepts
+## Learn More
 
 * [Authentication](key-concepts/authentication.md)
 * [Access Control](key-concepts/access-control.md)
 * [Communication Protocol](key-concepts/communication-protocol.md)
 * [Socket Operations](key-concepts/socket-operations.md)
 
+## REST API
+
+* [Overview](rest/overview.md)
+* [Reference](rest/reference.md)

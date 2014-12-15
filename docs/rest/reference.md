@@ -25,13 +25,6 @@ Resource                            | Description
 [POST /sockets](v1/post_sockets) | Creates a new socket object.
 [DELETE /sockets/:id](v1/delete_sockets_id) | Deletes a socket object.
 
-### Configuration
-
-Resource                            | Description
------------------------------------ | -------------
-[GET /configuration](v1/get_configuration) | Gets configuration.
-[PUT /configuration](v1/put_configuration) | Updates a configuration.
-
 ### Webhooks
 
 Resource                            | Description
