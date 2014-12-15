@@ -25,6 +25,7 @@ V1::SocketsApi.define do
       outcome = WebsocketUris::Create.run(
           tags: data['tags'] || [],
           ttl: 60 * 5,
+          user: current_user,
           base_uri: ENV['APP_DOMAIN']
       )
       if outcome.success?

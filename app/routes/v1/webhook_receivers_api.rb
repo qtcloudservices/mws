@@ -5,6 +5,7 @@ require_relative '../../mutations/websockets/send_enginio_message'
 module V1
   class WebhookReceiversApi < Cuba
     include JsonApi
+    include AuthFilters
   end
 end
 
@@ -20,7 +21,7 @@ V1::WebhookReceiversApi.define do
   on post do
     on 'enginio' do
       data = parse_json
-      outcome = Websocket::SendEnginioMessage.run(
+      outcome = Websockets::SendEnginioMessage.run(
           payload: data['payload'],
           receivers: data['receivers']
       )

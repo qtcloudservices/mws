@@ -16,7 +16,10 @@ V1::WebsocketUriApi.define do
 
   res.headers['Content-Type'] = 'application/json; charset=utf-8'
 
-  require_valid_token! if restricted_access?
+  if restricted_access?
+    require_valid_token!
+    require_permission!(current_user, :read)
+  end
 
   on get do
     on root do

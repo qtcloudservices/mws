@@ -16,7 +16,10 @@ V1::MessagesApi.define do
 
   res.headers['Content-Type'] = 'application/json; charset=utf-8'
 
-  require_valid_token! if restricted_access?
+  if restricted_access?
+    require_valid_token!
+    require_permission!(current_user, :write)
+  end
 
   on post do
     # POST /v1/messages
