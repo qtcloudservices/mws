@@ -14,4 +14,5 @@ group :development, :test do
   gem 'foreman'
   gem 'rspec'
   gem 'rack-test'
+  gem 'stub_env'
 end
