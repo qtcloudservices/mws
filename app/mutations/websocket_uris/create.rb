@@ -18,7 +18,7 @@ module WebsocketUris
       WebsocketUri.create(
           socket_id: SecureRandom.hex(32),
           tags: self.tags,
-          expire_in: ttl.from_now
+          expire_in: ttl.seconds.from_now
       )
     end
   end
