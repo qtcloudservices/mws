@@ -1,4 +1,5 @@
 require_relative '../../models/websocket_message'
+require_relative '../../middlewares/websocket_backend'
 
 module Websockets
   class SendRawMessage < Mutations::Command

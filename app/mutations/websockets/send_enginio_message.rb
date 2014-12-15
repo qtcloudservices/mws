@@ -15,8 +15,8 @@ module Websockets
       else
         sockets = []
       end
-      message = Websocket::SendRawMessage.run(
-          data: JSON.dump(data['payload']),
+      message = Websockets::SendRawMessage.run(
+          data: self.payload,
           receivers: {
               tags: tags,
               sockets: sockets
