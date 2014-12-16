@@ -4,9 +4,13 @@ require_relative 'app/routes/v1/messages_api'
 require_relative 'app/routes/v1/sockets_api'
 require_relative 'app/routes/v1/webhook_receivers_api'
 
-puts '== MWS Standalone Server =='
+puts '== MWS =='
 puts "   Access Control: #{ENV['ACCESS_CONTROL'] || 'none'}"
 Cuba.define do
+
+  on root do
+    res.write JSON.dump({name: 'MWS', deployedAt: Time.now.utc.iso8601})
+  end
 
   on 'v1/websocket_uri' do
     run V1::WebsocketUriApi
