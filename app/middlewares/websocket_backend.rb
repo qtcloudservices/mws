@@ -27,7 +27,7 @@ class WebsocketBackend
       end
 
       ws.on :message do |event|
-        ws.send("pong")
+        # implement if you need client -> server websocket communication
       end
 
       ws.on :close do |event|
