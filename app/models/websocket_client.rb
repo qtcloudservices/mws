@@ -12,7 +12,7 @@ class WebsocketClient < RedisOrm::Base
   def as_json
     {
         'id' => self.socket_id,
-        'createdAt' => self.created_at,
+        'createdAt' => self.created_at.utc.iso8601,
         'tags' => self.tags
     }
   end
