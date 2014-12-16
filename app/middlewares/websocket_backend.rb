@@ -110,9 +110,9 @@ class WebsocketBackend
       redis.subscribe(channel) do |on|
         on.message do |channel, json|
           message = JSON.parse(json) rescue nil
-          if message && message['payload'] && message['receivers']
+          if message && message['data'] && message['receivers']
             self.valid_clients_for_message(message).each do |client|
-              client.ws.send(message['payload'])
+              client.ws.send(message['data'])
             end
           end
         end
