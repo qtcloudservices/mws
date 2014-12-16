@@ -33,10 +33,9 @@ V1::WebsocketUriApi.define do
       if outcome.success?
         websocket_uri = outcome.result
         json = {
-            expires_at: ttl.from_now.utc.iso8601,
+            expiresAt: ttl.from_now.utc.iso8601,
             uri: "wss://#{ENV['APP_DOMAIN']}/?token=#{websocket_uri.socket_id}",
-            tags: websocket_uri.tags,
-            socket_id: websocket_uri.socket_id
+            tags: websocket_uri.tags
         }
         res.status = 200
         res.write JSON.dump(json)
