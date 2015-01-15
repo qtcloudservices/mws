@@ -43,4 +43,4 @@ rspec spec/
 
 ## License
 
-MIT.
+[MIT](LICENSE)
