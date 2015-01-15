@@ -1,4 +1,4 @@
-# MWS Server
+# MWS Server [![Build Status](https://travis-ci.org/qtcloudservices/mws.svg?branch=master)](https://travis-ci.org/qtcloudservices/mws)
 
 Open source version of Qt Cloud Services: Managed WebSocket.
 
