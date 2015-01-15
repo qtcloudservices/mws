@@ -5,6 +5,8 @@ class WebsocketBackend
   KEEPALIVE_TIME = 45 # in seconds
   CHANNEL = 'websocket_messages'
 
+  attr_reader :clients
+
   def initialize(app)
     @app     = app
     @clients = []
