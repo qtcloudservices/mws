@@ -15,4 +15,5 @@ group :development, :test do
   gem 'rspec'
   gem 'rack-test'
   gem 'stub_env'
+  gem 'rake'
 end
