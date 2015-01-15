@@ -1,7 +1,8 @@
 source 'https://rubygems.org'
 
-gem 'cuba'
-gem 'faye-websocket'
+gem 'cuba', '~> 3.3.0'
+gem 'eventmachine', '~> 1.0.4'
+gem 'faye-websocket', ' ~> 0.7.5'
 gem 'mutations'
 gem 'redis'
 gem 'redis-pool'
@@ -15,5 +16,4 @@ group :development, :test do
   gem 'rspec'
   gem 'rack-test'
   gem 'stub_env'
-  gem 'rake'
 end

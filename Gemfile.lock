@@ -18,7 +18,7 @@ GEM
     dotenv (0.11.1)
       dotenv-deployment (~> 0.0.2)
     dotenv-deployment (0.0.2)
-    eventmachine (1.0.3)
+    eventmachine (1.0.4)
     faye-websocket (0.7.5)
       eventmachine (>= 0.12.0)
       websocket-driver (>= 0.3.5)
@@ -38,7 +38,6 @@ GEM
     rack (1.5.2)
     rack-test (0.6.2)
       rack (>= 1.0)
-    rake (10.4.2)
     redis (3.1.0)
     redis-pool (0.1.1)
       connection_pool
@@ -71,15 +70,15 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  cuba
+  cuba (~> 3.3.0)
   dotenv
-  faye-websocket
+  eventmachine (~> 1.0.4)
+  faye-websocket (~> 0.7.5)
   foreman
   httpclient
   mutations
   puma
   rack-test
-  rake
   redis
   redis-pool
   redis_orm
