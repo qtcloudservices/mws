@@ -10,6 +10,14 @@ module JsonApi
     halt(res.finish)
   end
 
+  ##
+  # @param [Fixnum] status
+  # @param [Hash,Array] object
+  def respond_json(status, object)
+    res.status = status
+    res.write(JSON.dump(object))
+  end
+
   def logger
     $logger
   end

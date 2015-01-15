@@ -26,11 +26,9 @@ V1::WebhookReceiversApi.define do
           receivers: data['receivers']
       )
       if outcome.success?
-        res.status = 201
-        res.write JSON.dump(outcome.result)
+        respond_json(201, outcome.result)
       else
-        res.status = 422
-        res.write JSON.dump(outcome.errors.message)
+        respond_json(422, outcome.errors.message)
       end
     end
   end

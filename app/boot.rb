@@ -17,6 +17,7 @@ require_relative 'models/websocket_message'
 require_relative 'models/websocket_uri'
 
 class ::Logger; alias_method :write, :<<; end
+
 if ENV['RACK_ENV'] == 'production'
   default_log_level = Logger::INFO
 else

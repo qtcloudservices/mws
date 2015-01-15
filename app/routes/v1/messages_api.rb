@@ -30,11 +30,9 @@ V1::MessagesApi.define do
           receivers: data['receivers']
       )
       if outcome.success?
-        res.status = 201
-        res.write JSON.dump(outcome.result.as_json)
+        respond_json(201, outcome.result.as_json)
       else
-        res.status = 422
-        res.write JSON.dump(outcome.errors.message)
+        respond_json(422, outcome.errors.message)
       end
     end
   end

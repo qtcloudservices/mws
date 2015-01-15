@@ -29,11 +29,9 @@ V1::SocketsApi.define do
           base_uri: ENV['APP_DOMAIN']
       )
       if outcome.success?
-        res.status = 201
-        res.write JSON.dump(outcome.result)
+        respond_json(201, outcome.result)
       else
-        res.status = 422
-        res.write JSON.dump(outcome.errors.message)
+        respond_json(422, outcome.errors.message)
       end
     end
   end
@@ -42,18 +40,16 @@ V1::SocketsApi.define do
     # GET /v1/sockets
     on root do
       sockets = WebsocketClient.all
-      res.status = 200
-      res.write JSON.dump({results: sockets})
+      respond_json(200, {results: sockets})
     end
 
     # GET /v1/sockets/:id
     on ':id' do |id|
       socket = WebsocketClient.find_by_socket_id(id)
       if socket
-        res.status = 200
-        res.write JSON.dump(socket.as_json)
+        respond_json(200, socket.as_json)
       else
-        res.status = 404
+        respond_json(404, {})
       end
     end
   end
@@ -63,9 +59,9 @@ V1::SocketsApi.define do
     on ':id' do |id|
       socket = WebsocketClient.find_by_socket_id(id)
       if socket && socket.destroy
-        res.status = 200
+        respond_json(200, {})
       else
-        res.status = 404
+        respond_json(404, {})
       end
     end
   end

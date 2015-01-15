@@ -28,6 +28,10 @@ RSpec.configure do |config|
   config.include Rack::Test::Methods
   config.include StubEnv::Helpers
 
+  config.before(:each) do
+    $redis.flushdb
+  end
+
   def app
     Cuba
   end

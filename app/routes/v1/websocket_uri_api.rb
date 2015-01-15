@@ -37,11 +37,9 @@ V1::WebsocketUriApi.define do
             uri: "wss://#{ENV['APP_DOMAIN']}/?token=#{websocket_uri.socket_id}",
             tags: websocket_uri.tags
         }
-        res.status = 200
-        res.write JSON.dump(json)
+        respond_json(200, json)
       else
-        res.status = 503
-        res.write JSON.dump(outcome.errors.message)
+        respond_json(503, outcome.errors.message)
       end
     end
   end

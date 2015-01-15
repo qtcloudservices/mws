@@ -13,7 +13,7 @@ describe '/v1/websocket_uri' do
       get '/v1/websocket_uri', nil, request_headers
       expect(last_response.status).to eq(200)
       json = JSON.parse(last_response.body)
-      expect(json.keys.sort).to eq(%w(expires_at uri tags socket_id).sort)
+      expect(json.keys.sort).to eq(%w(expiresAt uri tags).sort)
     end
   end
 end
