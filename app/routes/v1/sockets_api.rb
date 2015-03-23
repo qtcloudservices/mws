@@ -29,7 +29,7 @@ V1::SocketsApi.define do
           base_uri: ENV['APP_DOMAIN']
       )
       if outcome.success?
-        respond_json(201, outcome.result)
+        respond_json(201, outcome.result.as_json)
       else
         respond_json(422, outcome.errors.message)
       end
