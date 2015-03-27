@@ -16,7 +16,7 @@ Open source version of Qt Cloud Services: Managed WebSocket.
   * `REDIS_PASSWORD=<mdb redis password>`
   * `APP_DOMAIN=<mar app domain>`
   * `SECURITY_TOKEN=<admin token, generate with your favorite tool>`
-  * `ACCESS_MODE=<none/eds/custom>`
+  * `ACCESS_CONTROL=<none/eds/custom>`
     * `none` public websocket
     * `eds` valid EDS OAuth2 token is required and checked against `EDS_PERMISSIONS` rules
     * `custom` server side code can deliver websockets to clients using `SECURITY_TOKEN`

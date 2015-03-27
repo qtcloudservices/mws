@@ -8,7 +8,8 @@ class WebsocketUri < RedisOrm::Base
   def as_json
     {
         'id' => self.socket_id,
-        'tags' => self.tags
+        'tags' => self.tags,
+        'uri' => "wss://#{ENV['APP_DOMAIN']}/?token=#{self.socket_id}"
     }
   end
 end
