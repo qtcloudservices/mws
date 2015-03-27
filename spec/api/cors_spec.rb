@@ -10,6 +10,13 @@ describe 'CORS support' do
     expect(headers['Access-Control-Allow-Methods']).to eq('GET, POST, PUT, DELETE, OPTIONS')
   end
 
+  it 'returns CORS headers for OPTIONS when Origin header is set' do
+    options '/', nil, {'HTTP_ORIGIN' => origin}
+    headers = last_response.headers
+    expect(headers['Access-Control-Allow-Origin']).to eq(origin)
+    expect(headers['Access-Control-Allow-Methods']).to eq('GET, POST, PUT, DELETE, OPTIONS')
+  end
+
   it 'does not return CORS headers when Origin is not set' do
     get '/'
     headers = last_response.headers
