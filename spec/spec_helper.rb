@@ -3,6 +3,7 @@ ENV['RACK_ENV'] = 'test'
 require 'dotenv'
 Dotenv.load('.env.test')
 
+require 'rack/cors'
 require_relative '../app/boot'
 require_relative '../server'
 require 'rack/test'
@@ -33,6 +34,12 @@ RSpec.configure do |config|
   end
 
   def app
+    Cuba.use Rack::Cors do
+      allow do
+        origins '*'
+        resource '*', :headers => :any, :methods => [:get, :post, :put, :delete, :options]
+      end
+    end
     Cuba
   end
 end
