@@ -21,6 +21,13 @@ describe '/v1/sockets' do
       }.to change{ WebsocketUri.count }.by(1)
     end
 
+    it 'returns valid json' do
+      post '/v1/sockets', valid_request_data.to_json, request_headers
+      expect(last_response.status).to eq(201)
+      json = JSON.parse(last_response.body)
+      expect(json.keys.sort).to eq(%w( id tags expiresAt uri).sort)
+    end
+
     it 'requires valid security token' do
       request_headers['HTTP_AUTHORIZATION'] = 'Bearer invalid'
       post '/v1/sockets', valid_request_data.to_json, request_headers
